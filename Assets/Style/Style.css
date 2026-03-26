@@ -590,6 +590,8 @@ section {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  justify-content: center;
+  align-items: center;
   gap: 16px;
   margin-top: 60px;
 }
@@ -599,6 +601,7 @@ section {
   border: 1px solid rgba(174, 184, 254, 0.1);
   border-radius: 20px;
   text-align: center;
+  align-items: center;
   cursor: default;
   position: relative;
   overflow: hidden;
@@ -627,6 +630,8 @@ section {
 .skill-icon {
   font-size: 2.2rem;
   margin-bottom: 12px;
+  margin: 0 auto 12px;
+  object-fit: contain;
   display: block;
   filter: grayscale(0.2);
 }

@@ -1,17 +1,18 @@
 /* ─── DATA ─── */
+
 const skills = [
-  { icon: "⚛️", name: "React", pct: 95 },
-  { icon: "🔷", name: "TypeScript", pct: 92 },
-  { icon: "🟢", name: "Node.js", pct: 88 },
-  { icon: "▲", name: "Next.js", pct: 93 },
-  { icon: "🎨", name: "CSS/Tailwind", pct: 90 },
-  { icon: "🌐", name: "Three.js", pct: 78 },
-  { icon: "🗄️", name: "PostgreSQL", pct: 82 },
-  { icon: "📦", name: "GraphQL", pct: 80 },
-  { icon: "🐳", name: "Docker", pct: 75 },
-  { icon: "☁️", name: "AWS/Cloud", pct: 72 },
-  { icon: "🎭", name: "GSAP", pct: 85 },
-  { icon: "🔥", name: "Prisma", pct: 83 },
+  { iconSrc: "/Assets/Images/Icons/React.png", name: "React", pct: 95 },
+  { iconSrc: "/Assets/Images/Icons/typeScript.png", name: "TypeScript", pct: 92 },
+  { iconSrc: "/Assets/Images/Icons/nodejs.png", name: "Node.js", pct: 88 },
+  { iconSrc: "https://img.icons8.com/fluency/96/nextjs.png", name: "Next.js", pct: 93 },
+  { iconSrc: "/Assets/Images/Icons/tailwindcss.SVG", name: "CSS/Tailwind", pct: 90 },
+  { iconSrc: "/Assets/Images/Icons/Threejs.png", name: "Three.js", pct: 78 },
+  { iconSrc: "/Assets/Images/Icons/MongoDB.png", name: "MongoDB", pct: 82 },
+  { iconSrc: "https://img.icons8.com/color/48/graphql.png", name: "GraphQL", pct: 80 },
+  { iconSrc: "/Assets/Images/Icons/supabase.png", name: "Supabase", pct: 75 },
+  { iconSrc: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/external-firebase-a-googles-mobile-platform-that-helps-you-quickly-develop-high-quality-apps-logo-color-tal-revivo.png", name: "Firebase", pct: 72 },
+  { iconSrc: "/Assets/Images/Icons/gsap.png", name: "GSAP", pct: 85 },
+  { iconSrc: "/Assets/Images/Icons/prisma.png", name: "Prisma", pct: 83 },
 ];
 
 const projects = [
@@ -109,7 +110,7 @@ const sg = document.getElementById("skills-grid");
 skills.forEach((s, i) => {
   sg.innerHTML += `
     <div class="skill-card reveal" style="transition-delay:${i * 0.06}s">
-      <span class="skill-icon">${s.icon}</span>
+      <img class="skill-icon" src="${s.iconSrc}" alt="${s.name}" height='50' width='50'/>
       <div class="skill-name">${s.name}</div>
       <div class="skill-bar-wrap"><div class="skill-bar" data-pct="${s.pct}"></div></div>
       <div class="skill-pct">${s.pct}%</div>
