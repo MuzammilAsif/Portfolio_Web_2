@@ -11,98 +11,45 @@ const skills = [
   { iconSrc: "https://img.icons8.com/color/48/graphql.png", name: "GraphQL", pct: 80 },
   { iconSrc: "/Assets/Images/Icons/supabase.png", name: "Supabase", pct: 75 },
   { iconSrc: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/external-firebase-a-googles-mobile-platform-that-helps-you-quickly-develop-high-quality-apps-logo-color-tal-revivo.png", name: "Firebase", pct: 72 },
-  { iconSrc: "/Assets/Images/Icons/gsap.png", name: "GSAP", pct: 85 },
-  { iconSrc: "/Assets/Images/Icons/prisma.png", name: "Prisma", pct: 83 },
+  { iconSrc: "/Assets/Images/Icons/gsap.png", name: "GSAP", pct: 85 }
 ];
 
 const projects = [
   {
-    icon: "🌌",
+    iconSrc: "/Assets/Images/Content/PSI.png",
     num: "01",
-    name: "NovaDash",
-    tags: ["React", "Three.js", "WebGL"],
-    cat: "3d",
-    desc: "An immersive 3D data visualization dashboard with real-time WebSocket updates and particle-based charts.",
-    live: "#",
-    repo: "#",
-  },
-  {
-    icon: "🛒",
-    num: "02",
-    name: "ShopFlow",
-    tags: ["Next.js", "Stripe", "Prisma"],
-    cat: "web",
-    desc: "Full-featured e-commerce platform with AI-powered recommendations, real-time inventory, and smooth checkout.",
-    live: "#",
-    repo: "#",
-  },
-  {
-    icon: "🎵",
-    num: "03",
-    name: "WaveSync",
-    tags: ["React Native", "Expo", "Audio API"],
-    cat: "mobile",
-    desc: "Cross-platform music collaboration app allowing real-time session sharing and live audio waveform visualization.",
-    live: "#",
-    repo: "#",
-  },
-  {
-    icon: "🤖",
-    num: "04",
-    name: "PromptForge",
-    tags: ["Next.js", "OpenAI", "Supabase"],
+    name: "Pascal Imitation Jewelry",
+    tags: ["HTML", "CSS", "JavaScript"],
     cat: "oss",
-    desc: "Open-source prompt engineering toolkit used by 2,000+ developers. Features version control and A/B testing.",
+    desc: "A website showcasing a collection of unique jewelry pieces inspired by the works of Blaise Pascal.reflecting Pascal's contributions to science and philosophy.",
     live: "#",
-    repo: "#",
+    repo: "https://github.com/MuzammilAsif/Pascal-Imitation-Jewelry",
   },
   {
-    icon: "🗺️",
-    num: "05",
-    name: "MapVis",
-    tags: ["D3.js", "Mapbox", "React"],
-    cat: "web",
-    desc: "Interactive geospatial analytics platform visualizing global datasets with dynamic clustering and heatmaps.",
+    iconSrc: "/Assets/Images/Content/currensee.png",
+    num: "02",
+    name: "Currensee",
+    tags: ["Flutter", "Dart", "Firebase"],
+    cat: "mobile",
+    desc: "A mobile app that provides real-time currency exchange rates, historical data visualization, and personalized alerts for 150+ currencies worldwide.",
     live: "#",
-    repo: "#",
-  },
-  {
-    icon: "🎮",
-    num: "06",
-    name: "Voxelcraft",
-    tags: ["Three.js", "WebGL", "WASM"],
-    cat: "3d",
-    desc: "Browser-based voxel engine with procedural terrain generation and multiplayer support via WebRTC.",
-    live: "#",
-    repo: "#",
-  },
+    repo: "https://github.com/MuzammilAsif/Crunsee",
+  }
 ];
 
 const timeline = [
   {
-    date: "2022 — Present",
-    role: "Senior Frontend Engineer",
-    company: "Horizon Labs",
-    desc: "Leading a team of 5 engineers to build next-gen SaaS products. Introduced micro-frontend architecture reducing build times by 60%.",
+    date: "2025 — Present",
+    role: "Project Manager",
+    company: "Advox Media",
+    desc: "Leading a team of 5 editors to edit high-performing videos. Oversaw 200+ video projects with a 98% client satisfaction rate. Implemented new workflow that increased efficiency by 30%.",
   },
   {
-    date: "2020 — 2022",
+    date: "2025 — present",
     role: "Full-Stack Developer",
-    company: "Apex Studio",
-    desc: "Built 12+ client projects end-to-end. Specialised in React + Node.js stacks. Delivered 3 projects that exceeded 100k monthly users.",
-  },
-  {
-    date: "2018 — 2020",
-    role: "Junior Developer",
-    company: "ByteCraft Agency",
-    desc: "Started career building WordPress plugins and vanilla JS components. Grew into React development within 6 months.",
-  },
-  {
-    date: "2018",
-    role: "B.Sc. Computer Science",
-    company: "University of Technology",
-    desc: "Graduated with First Class Honours. Thesis on WebGL rendering optimisation. Won Best Final Year Project award.",
-  },
+    company: "Fiverr",
+    desc: "Providing freelance web development services, specializing in React and Next.js.",
+  }
 ];
 
 /* ─── RENDER SKILLS ─── */
@@ -130,7 +77,7 @@ function renderProjects(filter) {
     el.innerHTML = `
       <div class="project-thumb">
         <div class="project-thumb-num">${p.num}</div>
-        <div class="project-thumb-icon">${p.icon}</div>
+        <img src="${p.iconSrc}" alt="${p.name}" class="project-thumb-icon"/>
         <div class="project-overlay">
           <a href="${p.live}" class="overlay-link" onclick="event.stopPropagation()">Live Demo</a>
           <a href="${p.repo}" class="overlay-link" onclick="event.stopPropagation()">GitHub</a>
@@ -469,41 +416,54 @@ window.addEventListener("scroll", () => {
 
 /* ─── CURSOR ─── */
 const cursor = document.getElementById("cursor");
-const cursorRing = document.getElementById("cursor-ring");
-let cx = 0,
-  cy = 0,
-  rx = 0,
-  ry = 0;
+
+let mouseX = 0, mouseY = 0;
+let posX = 0, posY = 0;
+let lastX = 0, lastY = 0;
+
 document.addEventListener("mousemove", (e) => {
-  cx = e.clientX;
-  cy = e.clientY;
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 });
+
 function animateCursor() {
   requestAnimationFrame(animateCursor);
-  rx += (cx - rx) * 0.12;
-  ry += (cy - ry) * 0.12;
-  cursor.style.left = cx + "px";
-  cursor.style.top = cy + "px";
-  cursorRing.style.left = rx + "px";
-  cursorRing.style.top = ry + "px";
+
+  // Smooth follow (lag)
+  posX += (mouseX - posX) * 0.15;
+  posY += (mouseY - posY) * 0.15;
+
+  // Speed-based stretch
+  const dx = mouseX - lastX;
+  const dy = mouseY - lastY;
+  const speed = Math.sqrt(dx * dx + dy * dy);
+  const stretch = Math.min(speed / 60, 0.4);
+
+  cursor.style.transform = `
+    translate(${posX}px, ${posY}px)
+    scale(${1 + stretch}, ${1 - stretch})
+  `;
+
+  lastX = mouseX;
+  lastY = mouseY;
 }
+
 animateCursor();
+
+// Hover interactions (blob grows instead of ring effect)
 document
   .querySelectorAll("a, button, .project-card, .skill-card, .avatar-card")
   .forEach((el) => {
     el.addEventListener("mouseenter", () => {
-      cursor.style.width = "20px";
-      cursor.style.height = "20px";
-      cursorRing.style.width = "52px";
-      cursorRing.style.height = "52px";
-      cursorRing.style.opacity = "0.8";
+      cursor.style.width = "70px";
+      cursor.style.height = "70px";
+      cursor.style.opacity = "0.6";
     });
+
     el.addEventListener("mouseleave", () => {
-      cursor.style.width = "12px";
-      cursor.style.height = "12px";
-      cursorRing.style.width = "36px";
-      cursorRing.style.height = "36px";
-      cursorRing.style.opacity = "0.5";
+      cursor.style.width = "40px";
+      cursor.style.height = "40px";
+      cursor.style.opacity = "0.8";
     });
   });
 

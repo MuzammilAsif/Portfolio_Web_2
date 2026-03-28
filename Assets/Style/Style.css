@@ -29,8 +29,8 @@ body {
 
 /* CUSTOM CURSOR */
 #cursor {
-  width: 12px;
-  height: 12px;
+  width: 40px;
+  height: 40px;
   background: var(--accent-mid);
   border-radius: 50%;
   position: fixed;
@@ -39,29 +39,23 @@ body {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition:
-    transform 0.15s ease,
-    width 0.3s ease,
-    height 0.3s ease,
-    background 0.3s ease;
+  
+  /* Blob effect */
+  filter: blur(4px);
+  opacity: 0.8;
+
+  transition: 
+    width 0.25s ease,
+    height 0.25s ease,
+    background 0.3s ease,
+    transform 0.08s ease-out;
+
   mix-blend-mode: screen;
 }
+
+/* remove ring completely */
 #cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid var(--accent-light);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s linear;
-  opacity: 0.5;
-}
-body:hover #cursor {
-  opacity: 1;
+  display: none;
 }
 
 /* LOADER */
@@ -740,6 +734,9 @@ section {
 .project-thumb-icon {
   font-size: 3.5rem;
   position: relative;
+  height: max-content;
+  width: 100%;
+  background-position: center;
   z-index: 1;
   filter: drop-shadow(0 0 24px rgba(117, 139, 253, 0.5));
 }
@@ -898,6 +895,7 @@ section {
   gap: 14px;
 }
 .social-link {
+  filter: invert(1);
   width: 44px;
   height: 44px;
   border-radius: 12px;

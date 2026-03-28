@@ -12,9 +12,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="./Assets/Style/Style.css" />
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async
+    ></script>
   </head>
   <body>
-    <!-- CUSTOM CURSOR -->
+    <!-- Calendly badge widget begin -->
+
     <div id="cursor"></div>
     <div id="cursor-ring"></div>
 
@@ -35,7 +45,9 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <li>
+          <a href="#" class="nav-cta" onclick="openCalendly(event)">Contact</a>
+        </li>
       </ul>
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
@@ -97,10 +109,9 @@
               code.
             </p>
             <p class="reveal reveal-delay-2">
-              When I'm not writing code or tuning animations, I'm
-              exploring generative art, contributing to open source, or
-              deep-diving into whatever emerging technology caught my eye this
-              week.
+              When I'm not writing code or tuning animations, I'm exploring
+              generative art, contributing to open source, or deep-diving into
+              whatever emerging technology caught my eye this week.
             </p>
             <p class="reveal reveal-delay-3">
               My philosophy:
@@ -128,7 +139,15 @@
           </div>
           <div class="about-visual reveal reveal-delay-2">
             <div class="avatar-card" id="avatar-card">
-              <div class="avatar-initials">MM</div>
+              <div class="avatar-initials">
+                <img
+                  src="./Assets/Images/Content/pfp.jpg"
+                  alt=""
+                  height="100"
+                  width="100"
+                  style="border-radius: 50%"
+                />
+              </div>
               <div class="avatar-name">Muzammil Mughal</div>
               <div class="avatar-role">Full-Stack Developer</div>
               <div class="avatar-badges">
@@ -206,16 +225,50 @@
               to you within 24 hours.
             </p>
             <div class="social-links">
-              <a href="#" class="social-link" title="GitHub">⌥</a>
-              <a href="#" class="social-link" title="LinkedIn">in</a>
-              <a href="#" class="social-link" title="Twitter">𝕏</a>
-              <a href="#" class="social-link" title="Dribbble">◉</a>
+              <a
+                href="https://github.com/MuzammilAsif"
+                class="social-link"
+                title="GitHub"
+                ><img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios-glyphs/30/github.png"
+                  alt="github"
+              /></a>
+              <a
+                href="www.linkedin.com/in/muzammil-mughal-8baa3327b"
+                class="social-link"
+                title="LinkedIn"
+                ><img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios-glyphs/30/linkedin.png"
+                  alt="linkedin"
+              /></a>
+              <a href="#" class="social-link" title="Instagram"
+                ><img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios-glyphs/30/instagram.png"
+                  alt="instagram"
+              /></a>
+              <a href="#" class="social-link" title="Facebook"
+                ><img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios-glyphs/30/facebook.png"
+                  alt="dribbble"
+              /></a>
               <a
                 href="mailto:alex@example.com"
                 class="social-link"
                 title="Email"
-                >@</a
-              >
+                ><img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios/50/new-post--v1.png"
+                  alt="email"
+              /></a>
             </div>
           </div>
           <form
@@ -290,5 +343,13 @@
     </div>
 
     <script src="./Assets/script/script.js"></script>
+    <script>
+      function openCalendly(e) {
+        e.preventDefault();
+        window.Calendly.initPopupWidget({
+          url: "https://calendly.com/awayuser697/30min",
+        });
+      }
+    </script>
   </body>
 </html>
