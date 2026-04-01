@@ -34,6 +34,16 @@ const projects = [
     desc: "A mobile app that provides real-time currency exchange rates, historical data visualization, and personalized alerts for 150+ currencies worldwide.",
     live: "#",
     repo: "https://github.com/MuzammilAsif/Crunsee",
+  },
+  {
+    iconSrc: "/Assets/Images/Content/artistry.png",
+    num: "03",
+    name: "Artistry",
+    tags: ["React", "Tailwind CSS", "Supabase", "Next.js"],
+    cat: "web",
+    desc: "An ecom store for digital artists to sell their work, featuring a sleek React frontend, Tailwind styling, and a Supabase backend for seamless user experience.",
+    live: "https://e-commerce-platform-nbcv.bolt.host/",
+    repo: "https://github.com/MuzammilAsif/Artistry",
   }
 ];
 
@@ -493,17 +503,29 @@ function closeModalDirect() {
 }
 
 /* ─── FORM ─── */
+// Initialize EmailJS once with your public key
+emailjs.init("uP8PgS7PF8hp-cxeb");
+
 function submitForm(e) {
   e.preventDefault();
   const btn = document.querySelector(".form-submit");
   btn.textContent = "Sending...";
   btn.style.opacity = "0.7";
-  setTimeout(() => {
-    btn.style.display = "none";
-    document.getElementById("success-msg").style.display = "block";
-    e.target.reset();
-  }, 1500);
+
+  emailjs.sendForm("service_7dqdnkf", "template_b5vxhc2", e.target)
+    .then(() => {
+      btn.style.display = "none";
+      document.getElementById("success-msg").style.display = "block";
+      e.target.reset();
+    })
+    .catch((error) => {
+      btn.textContent = "Send Message →";
+      btn.style.opacity = "1";
+      alert("Failed to send message. Please try again.");
+      console.error("EmailJS error:", error);
+    });
 }
+
 
 /* ─── HAMBURGER ─── */
 let menuOpen = false;
