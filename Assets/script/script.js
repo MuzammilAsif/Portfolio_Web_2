@@ -44,6 +44,16 @@ const projects = [
     desc: "An ecom store for digital artists to sell their work, featuring a sleek React frontend, Tailwind styling, and a Supabase backend for seamless user experience.",
     live: "https://e-commerce-platform-nbcv.bolt.host/",
     repo: "https://github.com/MuzammilAsif/Artistry",
+  },
+  {
+    iconSrc: "/Assets/Images/Content/Nexus-GamingHub.png",
+    num: "04",
+    name: "Nexus",
+    tags: ["React", "Tailwind CSS", "Next.js"],
+    cat: "web",
+    desc: "The website showcase games along with their rating and real feedbacks that help you to think before purchasing any game, It features upcoming games and most popular.",
+    live: "https://nexusgamehubshowcase.netlify.app/",
+    repo: "https://github.com/MuzammilAsif/Nexus",
   }
 ];
 
