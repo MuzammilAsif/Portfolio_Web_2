@@ -54,6 +54,16 @@ const projects = [
     desc: "The website showcase games along with their rating and real feedbacks that help you to think before purchasing any game, It features upcoming games and most popular.",
     live: "https://nexusgamehubshowcase.netlify.app/",
     repo: "https://github.com/MuzammilAsif/Nexus",
+  },
+  {
+    iconSrc: "/Assets/Images/Content/DastarKhwan.png",
+    num: "05",
+    name: "Dastarkhwan",
+    tags: ["React", "CSS", "Next.js"],
+    cat: "web",
+    desc: "The website for a local restaurant, featuring a dynamic menu, online ordering system, and a visually appealing design that captures the essence of their cuisine.",
+    live: "https://dastar-khwan.netlify.app/",
+    repo: "https://github.com/MuzammilAsif/DastarKhwan",
   }
 ];
 
