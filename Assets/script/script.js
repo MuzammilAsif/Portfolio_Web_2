@@ -64,6 +64,16 @@ const projects = [
     desc: "The website for a local restaurant, featuring a dynamic menu, online ordering system, and a visually appealing design that captures the essence of their cuisine.",
     live: "https://dastar-khwan.netlify.app/",
     repo: "https://github.com/MuzammilAsif/DastarKhwan",
+  },
+  {
+  iconSrc: "/Assets/Images/Content/quantum UI.png",
+    num: "06",
+    name: "Quantum UI Studio",
+    tags: ["React", "TypeScript", "Tailwind CSS", "postresql", "Hono"],
+    cat: "web app",
+    desc: "This is a vscode extension that allows developers to have a collectiopn of prebuilt components taht can be used in thei rprojects, it contains components from all famous libraries like SHad Cn, MAgic UI and Quantum own UI library.",
+    live: "",
+    repo: "https://github.com/MuzammilAsif/Quantum-Ui",
   }
 ];
 
